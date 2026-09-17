@@ -1,69 +1,261 @@
 import Image from "next/image";
+import { ArrowDownRight, ArrowUpRight } from "lucide-react";
+import { Reveal } from "@/components/Reveal";
+
+const services = [
+  {
+    number: "01",
+    title: "Finančný plán",
+    text: "Prehľad príjmov, rezerv, cieľov a priorít v jednom zrozumiteľnom systéme.",
+  },
+  {
+    number: "02",
+    title: "Ochrana príjmu",
+    text: "Analýza rizík a nastavenie ochrany podľa reálnej životnej situácie.",
+  },
+  {
+    number: "03",
+    title: "Tvorba rezervy",
+    text: "Praktický plán pre krátkodobú istotu aj dlhodobé finančné ciele.",
+  },
+  {
+    number: "04",
+    title: "Financovanie bývania",
+    text: "Porovnanie možností a príprava rozhodnutia v širšom finančnom kontexte.",
+  },
+];
+
+const process = [
+  ["01", "Úvodný rozhovor", "Pomenujeme situáciu, priority a otázky bez záväzkov."],
+  ["02", "Analýza", "Údaje prevedieme na jasný obraz možností a rizík."],
+  ["03", "Návrh", "Vznikne zrozumiteľný plán s vysvetlenými súvislosťami."],
+  ["04", "Ďalší krok", "Rozhodnutie zostáva na klientovi, bez nátlaku a skratiek."],
+];
+
+const principles = [
+  ["01", "Najprv kontext", "Jedno riešenie nedáva zmysel bez pohľadu na celý finančný obraz."],
+  ["02", "Zrozumiteľný jazyk", "Komplexné témy vysvetlené bez zbytočného odborného slovníka."],
+  ["03", "Rozhodnutie bez tlaku", "Cieľom je orientácia a istota, nie rýchly podpis."],
+];
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+    <>
+      <div className="demo-bar">
+        Ukážkový projekt — nejde o skutočnú finančnú službu
+      </div>
+
+      <header className="site-header">
+        <a className="brand" href="#top" aria-label="KONTEXT Finance — domov">
+          <span>KONTEXT</span>
+          <small>FINANCE / 01</small>
+        </a>
+
+        <nav className="desktop-nav" aria-label="Hlavná navigácia">
+          <a href="#sluzby">Služby</a>
+          <a href="#principy">Prístup</a>
+          <a href="#proces">Proces</a>
+        </nav>
+
+        <a className="header-cta" href="#kontakt">
+          Dohodnúť konzultáciu <ArrowUpRight aria-hidden="true" size={15} />
+        </a>
+
+        <details className="mobile-menu">
+          <summary>Menu</summary>
+          <nav aria-label="Mobilná navigácia">
+            <a href="#sluzby">Služby</a>
+            <a href="#principy">Prístup</a>
+            <a href="#proces">Proces</a>
+            <a href="#kontakt">Dohodnúť konzultáciu</a>
+          </nav>
+        </details>
+      </header>
+
+      <main id="top">
+        <section className="hero editorial-hero section-shell">
+          <Reveal className="editorial-hero-top">
+            <span>Osobné finančné poradenstvo</span>
+
+            <div className="editorial-hero-location">
+              <span>Nitra</span>
+              <span>Online</span>
+            </div>
+          </Reveal>
+
+          <div className="editorial-headline-grid">
+            <Reveal className="editorial-headline" delay={0.04}>
+              <h1>
+                Finančné rozhodnutia,
+                <br />
+                ktoré majú
+                <span> jasný smer.</span>
+              </h1>
+            </Reveal>
+
+            <Reveal className="editorial-intro" delay={0.1}>
+              <span className="editorial-intro-line" />
+
+              <p>
+                Financie vnímam ako jeden celok. Najskôr pochopíme vašu
+                situáciu, potom vytvoríme plán, ktorému budete rozumieť.
+              </p>
+
+              <a className="editorial-cta" href="#kontakt">
+                Dohodnúť konzultáciu
+                <ArrowUpRight aria-hidden="true" size={18} />
+              </a>
+            </Reveal>
+          </div>
+
+          <Reveal className="editorial-image" delay={0.14}>
             <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
+              src="/images/advisor-hero.png"
+              alt="Portrét finančnej konzultantky"
+              fill
+              priority
+              sizes="(max-width: 900px) 100vw, 90vw"
             />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
+
+            <div className="editorial-image-label">
+              <span>Osobný prístup</span>
+              <span>Financie v súvislostiach</span>
+            </div>
+          </Reveal>
+
+          <div className="editorial-footer">
+            <Reveal className="editorial-footer-copy" delay={0.16}>
+              <p>
+                Nie viac produktov.
+                <br />
+                Viac istoty v rozhodnutiach.
+              </p>
+            </Reveal>
+
+            <Reveal className="editorial-footer-note" delay={0.19}>
+              <span>01</span>
+              <p>
+                Každé odporúčanie začína pochopením vášho života,
+                priorít a cieľov.
+              </p>
+            </Reveal>
+
+            <Reveal className="editorial-scroll" delay={0.22}>
+              <a href="#sluzby">
+                Objaviť prístup
+                <ArrowDownRight aria-hidden="true" size={18} />
+              </a>
+            </Reveal>
+          </div>
+        </section>
+
+        <section className="services section-shell" id="sluzby">
+          <Reveal className="section-intro">
+            <p className="eyebrow">01 / Oblasti</p>
+            <h2>Financie ako jeden celok.</h2>
+            <p>
+              Jednotlivé rozhodnutia posudzujeme v súvislostiach, nie ako oddelené
+              produkty.
+            </p>
+          </Reveal>
+
+          <div className="service-list">
+            {services.map((service, index) => (
+              <Reveal className="service-row" key={service.number} delay={index * 0.04}>
+                <span className="row-number">{service.number}</span>
+                <h3>{service.title}</h3>
+                <p>{service.text}</p>
+                <ArrowDownRight aria-hidden="true" size={22} />
+              </Reveal>
+            ))}
+          </div>
+        </section>
+
+        <section className="principles" id="principy">
+          <div className="section-shell principles-grid">
+            <Reveal className="principles-title">
+              <p className="eyebrow eyebrow-light">02 / Osobný prístup</p>
+              <h2>Dôvera začína rozhovorom.</h2>
+            </Reveal>
+
+            <div className="principle-list">
+              {principles.map(([number, title, text], index) => (
+                <Reveal className="principle-row" key={number} delay={index * 0.05}>
+                  <span>{number}</span>
+                  <div>
+                    <h3>{title}</h3>
+                    <p>{text}</p>
+                  </div>
+                </Reveal>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="process section-shell" id="proces">
+          <Reveal className="process-heading">
+            <p className="eyebrow">03 / Proces</p>
+            <h2>Štyri kroky k lepšiemu prehľadu.</h2>
+          </Reveal>
+
+          <div className="process-line">
+            {process.map(([number, title, text], index) => (
+              <Reveal className="process-step" key={number} delay={index * 0.05}>
+                <span>{number}</span>
+                <h3>{title}</h3>
+                <p>{text}</p>
+              </Reveal>
+            ))}
+          </div>
+        </section>
+
+        <section className="statement section-shell">
+          <Reveal>
+            <p className="eyebrow">04 / Výsledok</p>
+            <blockquote>
+              Dobrý plán nepridáva ďalšie otázky. Pomáha rozlíšiť, čo je dôležité
+              <em> teraz</em> a čo môže počkať.
+            </blockquote>
+          </Reveal>
+          <div className="statement-note">
+            <span>Jasnosť</span>
+            <span>Súvislosti</span>
+            <span>Kontrola</span>
+          </div>
+        </section>
+
+        <section className="contact" id="kontakt">
+          <div className="section-shell contact-grid">
+            <Reveal>
+              <p className="eyebrow eyebrow-light">Ukážkový koncept</p>
+              <h2>Priestor pre pokojné rozhodnutie.</h2>
+            </Reveal>
+            <Reveal className="contact-copy" delay={0.08}>
+              <p>
+                KONTEXT Finance je fiktívny projekt vytvorený ako ukážka spojenia
+                Swiss presnosti a prémiovej osobnej značky.
+              </p>
+              <a
+                className="contact-link"
+                href="https://www.samuelzeliska.sk"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Autor projektu <ArrowUpRight aria-hidden="true" size={18} />
+              </a>
+            </Reveal>
+          </div>
+        </section>
       </main>
-    </div>
+
+      <footer className="site-footer section-shell">
+        <div className="brand footer-brand">
+          <span>KONTEXT</span>
+          <small>FINANCE / 01</small>
+        </div>
+        <p>Ukážkový projekt. Obsah nie je finančným poradenstvom.</p>
+        <a href="#top">Hore ↑</a>
+      </footer>
+    </>
   );
 }

@@ -14,9 +14,29 @@ const sans = DM_Sans({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://kontext-finance-demo.vercel.app"),
+
   title: "KONTEXT Finance | Finančné rozhodnutia v súvislostiach",
+
   description:
     "Ukážkový koncept osobnej značky finančnej konzultantky, ktorý spája presnú informačnú štruktúru s ľudskou a dôveryhodnou komunikáciou.",
+
+  openGraph: {
+    title: "KONTEXT Finance | Finančné rozhodnutia v súvislostiach",
+    description:
+      "Ukážkový koncept osobnej značky finančnej konzultantky postavený na jasnosti, dôvere a finančných súvislostiach.",
+    url: "https://kontext-finance-demo.vercel.app",
+    siteName: "KONTEXT Finance",
+    locale: "sk_SK",
+    type: "website",
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title: "KONTEXT Finance | Finančné rozhodnutia v súvislostiach",
+    description:
+      "Ukážkový koncept osobnej značky finančnej konzultantky postavený na jasnosti, dôvere a finančných súvislostiach.",
+  },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
